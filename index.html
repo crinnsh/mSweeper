@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Minesweeper</title>
+</head>
+<body>
+  <div id="modal">
+    <button id="btn">DIFFICULTY</button>
+    <dialog id="popup">
+      <div>
+        <button onclick="diff('x1')">Beginner</button>
+        <h3>9x9 board, 10 mines.</h3>
+      </div>
+      <div>
+        <button onclick="diff('x2')">Intermediate</button>
+        <h3>16x16 board, 40 mines.</h3>
+      </div>
+      <div>
+        <button onclick="diff('x3')">Expert</button>
+        <h3>23x23 board, 99 mines.</h3>
+      </div>
+    </dialog>
+  </div>
+  
+  <div class="header">
+    <div class="flag-count">
+      <h2><span id="flag-count"></span></h2>
+    </div>
+    <div class="head">
+      <span id="head" onclick="operator()"></span>
+    </div>
+    <div class="timer">
+      <h2><span id="timer">0</span></h2>
+    </div>
+  </div>
+  <div id="board"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
