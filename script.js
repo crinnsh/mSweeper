@@ -1,8 +1,8 @@
 const board = [];
 
-let boardSize = 16;
+let boardSize = 9;
 
-let nrMines = 40;
+let nrMines = 10;
 let minePositions = [];
 
 let squaresClicked = 0;
