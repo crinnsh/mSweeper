@@ -65,10 +65,15 @@ function loadContent() {
 
 }
 
+let seconds = 1;
+let timerEl = document.getElementById('timer');
+
 function startTimer() {
-  let seconds = 1;
-  let timerEl = document.getElementById('timer');
+
   timer = setInterval(() => {
+    if (lost == true) {
+      return;
+    }
     timerEl.innerHTML = seconds;
     seconds++;
     if (seconds == 999) {
@@ -133,6 +138,9 @@ function squareClicked() {
     document.querySelector('#head').innerText = '😭';
     console.log('better luck next time 🤡')
     lost = true;
+    endSeconds = seconds;
+    console.log(endSeconds);
+    timerEl.innerHTML == endSeconds;
     return;
   }
 
