@@ -32,6 +32,9 @@ body {
   border-radius: 8px;
   border: 3px solid rgba(43, 43, 43, 0.43);
   box-shadow: 0 0 3px black;
+
+  display: flex;
+  justify-content: center;
 }
 
 .timer {

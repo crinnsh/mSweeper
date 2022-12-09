@@ -126,6 +126,8 @@ function squareClicked() {
     return;
   }
 
+  document.querySelector('#head').innerText = '😬';
+
   if (minePositions.includes(square.id)) {
     displayMines();
     document.querySelector('#head').innerText = '😭';
@@ -188,6 +190,7 @@ function probeMine(x, y) {
 
   if (squaresClicked == boardSize * boardSize - nrMines) {
     document.querySelector('#flag-count').innerText = 'VICTORY!';
+    document.querySelector('#head').innerText = '🥳';
     /* console.log('VICTORY!'); */
     lost = true;
   }
@@ -251,16 +254,6 @@ let modalBtn = document.getElementById('btn');
 
 modalBtn.addEventListener("click", openModal);
 
-/* window.addEventListener('click', clickOutside); */
-
 function openModal() {
   modal.style.display = "block";
-  /* console.log('block'); */
 }
-
-/* function clickOutside(e) {
-  if (e.target == modal) {
-    modal.style.display = 'none';
-    console.log('none');
-  }
-} */
