@@ -12,7 +12,6 @@ let placedFlags = nrMines;
 const r = document.querySelector(":root");
 
 const difficultySave = JSON.parse(localStorage.getItem("difficulty"));
-/* console.log(difficultySave); */
 
 let timerOn = false;
 
@@ -60,9 +59,7 @@ function loadContent() {
 
   document.querySelector('#head').innerText = '🧐';
   document.querySelector('#flag-count').innerText = placedFlags;
-  /* console.log(placedFlags); */
   drawBoard();
-
 }
 
 let seconds = 1;
@@ -115,20 +112,19 @@ let drawBoard = () => {
     }
     board.push(row);
   }
-  /* console.log(board); */
   deployMines();
 }
 
 function squareClicked() {
   let square = this;
 
+  if (lost || this.classList.contains('square-clicked') || this.innerText == '🚩') {
+    return;
+  }
+
   if (timerOn == false) {
     startTimer();
     timerOn = true;
-  }
-
-  if (lost || this.classList.contains('square-clicked') || this.innerText == '🚩') {
-    return;
   }
 
   document.querySelector('#head').innerText = '😬';
@@ -136,10 +132,8 @@ function squareClicked() {
   if (minePositions.includes(square.id)) {
     displayMines();
     document.querySelector('#head').innerText = '😭';
-    /* console.log('better luck next time 🤡') */
     lost = true;
     endSeconds = seconds;
-    /* console.log(endSeconds); */
     timerEl.innerHTML == endSeconds;
     return;
   }
@@ -194,12 +188,9 @@ function probeMine(x, y) {
     probeMine(x + 1, y + 1);
   }
 
-  /* console.log(squaresClicked); */
-
   if (squaresClicked == boardSize * boardSize - nrMines) {
     document.querySelector('#flag-count').innerText = 'VICTORY!';
     document.querySelector('#head').innerText = '🥳';
-    /* console.log('VICTORY!'); */
     lost = true;
   }
 }
@@ -253,7 +244,6 @@ function diff(option) {
       localStorage.setItem('difficulty', JSON.stringify('x3'));
       break;
   }
-  /* console.log(option); */
   window.location.reload();
 }
 
