@@ -136,10 +136,10 @@ function squareClicked() {
   if (minePositions.includes(square.id)) {
     displayMines();
     document.querySelector('#head').innerText = '😭';
-    console.log('better luck next time 🤡')
+    /* console.log('better luck next time 🤡') */
     lost = true;
     endSeconds = seconds;
-    console.log(endSeconds);
+    /* console.log(endSeconds); */
     timerEl.innerHTML == endSeconds;
     return;
   }
